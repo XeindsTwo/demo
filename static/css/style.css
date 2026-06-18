@@ -1,5 +1,25 @@
+@font-face {
+    font-family: 'PT Sans';
+    src: url('../fonts/PTSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PT Sans';
+    src: url('../fonts/PTSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PT Sans';
+    src: url('../fonts/PTSans-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
 body {
-  background-color: aquamarine;
-  font-size: 20px;
-  color: white;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 18px;
 }

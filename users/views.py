@@ -8,6 +8,9 @@ def index(request):
 
 
 def register_view(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
@@ -16,10 +19,14 @@ def register_view(request):
             return redirect('home')
     else:
         form = RegisterForm()
+
     return render(request, 'registration/register.html', {'form': form})
 
 
 def login_view(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+
     if request.method == 'POST':
         form = LoginForm(request, data=request.POST)
         if form.is_valid():
@@ -28,4 +35,5 @@ def login_view(request):
             return redirect('home')
     else:
         form = LoginForm()
+
     return render(request, 'registration/login.html', {'form': form})

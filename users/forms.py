@@ -15,7 +15,7 @@ class RegisterForm(UserCreationForm):
 
     phone = forms.CharField(
         label='Телефон',
-        max_length=16
+        max_length=24
     )
 
     email = forms.EmailField(
@@ -46,7 +46,7 @@ class RegisterForm(UserCreationForm):
         })
 
         self.fields['phone'].widget.attrs.update({
-            'placeholder': '8(999)123-45-67'
+            'placeholder': '8 (999)123-45-67'
         })
 
         self.fields['email'].widget.attrs.update({
@@ -81,8 +81,8 @@ class RegisterForm(UserCreationForm):
     def clean_phone(self):
         phone = self.cleaned_data.get('phone')
 
-        if not re.fullmatch(r'8\(\d{3}\)\d{3}-\d{2}-\d{2}', phone):
-            raise ValidationError('Телефон должен быть в формате 8(XXX)XXX-XX-XX')
+        if not re.fullmatch(r'8 \(\d{3}\) \d{3}-\d{2}-\d{2}', phone):
+            raise ValidationError('Телефон должен быть в формате 8 (XXX) XXX-XX-XX')
 
         return phone
 
